@@ -1,0 +1,5 @@
+def classify_message(model, vectorizer, message):
+    message = preprocess_text(message)
+    vectorized_message = vectorizer.transform([message]).toarray()
+    prediction = model.predict(vectorized_message)
+    return "Spam" if prediction == 1 else "Ham"

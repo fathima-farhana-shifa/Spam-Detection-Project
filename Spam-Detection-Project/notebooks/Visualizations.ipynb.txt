@@ -1,0 +1,21 @@
+from wordcloud import WordCloud
+
+# Generate word clouds
+spam_words = ' '.join(data[data['label'] == 'spam']['cleaned_message'])
+ham_words = ' '.join(data[data['label'] == 'ham']['cleaned_message'])
+
+spam_wc = WordCloud(width=500, height=300, background_color='red').generate(spam_words)
+ham_wc = WordCloud(width=500, height=300, background_color='blue').generate(ham_words)
+
+# Display word clouds
+plt.figure(figsize=(10, 5))
+plt.imshow(spam_wc, interpolation='bilinear')
+plt.axis('off')
+plt.title('Spam Messages Word Cloud')
+plt.show()
+
+plt.figure(figsize=(10, 5))
+plt.imshow(ham_wc, interpolation='bilinear')
+plt.axis('off')
+plt.title('Ham Messages Word Cloud')
+plt.show()

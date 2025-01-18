@@ -1,0 +1,8 @@
+import string
+from nltk.corpus import stopwords
+
+def preprocess_text(text):
+    text = text.lower()  # Convert to lowercase
+    text = ''.join([char for char in text if char not in string.punctuation])  # Remove punctuation
+    text = ' '.join([word for word in text.split() if word not in stopwords.words('english')])  # Remove stopwords
+    return text

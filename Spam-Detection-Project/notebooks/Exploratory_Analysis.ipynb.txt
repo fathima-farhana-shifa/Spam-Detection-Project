@@ -1,0 +1,16 @@
+# Import necessary libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load dataset
+data = pd.read_csv('../data/spam.csv', encoding='latin-1')
+
+# Quick data overview
+print(data.head())
+print(data.info())
+
+# Visualize class distribution
+sns.countplot(x='v1', data=data)
+plt.title('Spam vs Ham Distribution')
+plt.show()
